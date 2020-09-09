@@ -17,17 +17,18 @@ namespace ConsoleApp2
             {
                 Console.WriteLine("enter 1st number");
                 a = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("enter the @nd numbeer");
+                Console.WriteLine("enter the 2nd numbeer");
                 b = Convert.ToInt32(Console.ReadLine());
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                
             }
         }
         public void Sum()
         {
-            Console.WriteLine("Sum= {0)", (a + b));
+            Console.WriteLine("Sum= {0}", (a + b));
 
         }
         public void product()
@@ -41,14 +42,17 @@ namespace ConsoleApp2
             p.getnumbers();
             if(p.a==0)
             {
+                Console.WriteLine("zero cannot be entered");
                p. a = Convert.ToInt32(Console.ReadLine());
             }
             if (p.b == 0)
             {
+                Console.WriteLine("zero cannot be entered");
                 p.b = Convert.ToInt32(Console.ReadLine());
             }
             p.Sum();
             p.product();
+            Console.ReadKey();
 
 
         }
