@@ -1,55 +1,59 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevOps_Question
+namespace ConsoleApp2
 {
-  
-    class Program
+    class Question
     {
-        public double sum(double a, double b)
+        public int sum(int a, int b)
         {
-            double sum = a + b;
+            int sum = a + b;
             return sum;
         }
-        public double product(double c, double d)
+        public int product(int c, int d)
         {
-            double product = c * d;
+            int product = c * d;
             return product;
+        }
+        public int diff(int c, int d)
+        {
+            int diff = c - d;
+            return diff;
         }
         static void Main(string[] args)
         {
-            Program p = new Program();
+            Question p = new Question();
 
             Console.WriteLine("Enter the two numbers");
 
-            double a1=0, b1=0;
-            double s1=0, p1=0;
+            int a1 = 0, b1 = 0;
+            int s1 = 0, p1 = 0, d1 = 0;
 
             try
             {
-                while (a1 == 0)
+                while (!Int32.TryParse(Console.ReadLine(),out a1)||(a1==0))
                 {
-                    a1 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("please enter valid number");
                 }
 
-                while (b1 == 0)
+                while (!Int32.TryParse(Console.ReadLine(), out b1) || (b1 == 0))
                 {
-                    b1 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("please enter valid number");
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
 
             s1 = p.sum(a1, b1);
             p1 = p.product(a1, b1);
+            d1 = p.diff(a1, b1);
 
-            Console.WriteLine("Sum - {0}    Product - {1}",s1,p1);
+            Console.WriteLine("Sum - {0} Difference - {1}   Product - {2}", s1,d1,p1);
             Console.ReadKey();
         }
     }
